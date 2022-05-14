@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+      <html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>jQuery mycart Plugin Example</title>
+          <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+          <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+          <script src="/path/to/jquery.min.js"></script>
+          <style>
+          body { font-family:'Open Sans'}
+          .badge-notify{
+            background:red;
+            position:relative;
+            top: -20px;
+            right: 10px;
+          }
+          </style>
+        <meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.jqueryscript.net" as="script"><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202204180101/reactive_library_fy2019.js?bust=31067175"></script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.jqueryscript.net"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.jqueryscript.net" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.jqueryscript.net"></script><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"></head>
+        
+        <body class="container" aria-hidden="false" >
+        
+          <div class="page-header">
+            <h1>The Fashion Store
+              <div style="float: right; cursor: pointer; padding-top: 10%;">
+                <span class="glyphicon glyphicon-shopping-cart my-cart-icon my-cart-icon-affix" style="position: fixed; background-color: inherit; z-index: 999;"><span class="badge badge-notify my-cart-badge">0</span></span>
+              </div>
+            </h1>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <img src="images/img_1.png" width="150px" height="150px">
+              <br>
+              product 1 - <strong>$10</strong>
+              <br>
+              <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+              <a href="#" class="btn btn-info">Details</a>
+            </div>
+        
+            <div class="col-md-3 text-center">
+              <img src="images/img_2.png" width="150px" height="150px">
+              <br>
+              product 2 - <strong>$20</strong>
+              <br>
+              <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+              <a href="#" class="btn btn-info">Details</a>
+            </div>
+        
+            <div class="col-md-3 text-center">
+              <img src="images/img_3.png" width="150px" height="150px">
+              <br>
+              product 3 - <strong>$30</strong>
+              <br>
+              <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+              <a href="#" class="btn btn-info">Details</a>
+            </div>
+        
+            <div class="col-md-3 text-center">
+              <img src="images/img_4.png" width="150px" height="150px">
+              <br>
+              product 4 - <strong>$40</strong>
+              <br>
+              <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+              <a href="#" class="btn btn-info">Details</a>
+            </div>
+        
+            <div class="col-md-3 text-center">
+              <img src="images/img_5.png" width="150px" height="150px">
+              <br>
+              product 5 - <strong>$50</strong>
+              <br>
+              <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+              <a href="#" class="btn btn-info">Details</a>
+            </div>
+        
+          </div>
+        
+        <script>
+        try {
+          fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+            return true;
+          }).catch(function(e) {
+            var carbonScript = document.createElement("script");
+            carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+            carbonScript.id = "_carbonads_js";
+            document.getElementById("carbon-block").appendChild(carbonScript);
+          });
+        } catch (error) {
+          console.log(error);
+        }
+        </script>
+        
+          <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+          <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+          <script type="text/javascript" src="js/jquery.mycart.js"></script>
+          <script type="text/javascript">
+          $(function () {
+        
+            var goToCartIcon = function($addTocartBtn){
+              var $cartIcon = $(".my-cart-icon");
+              var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+              $addTocartBtn.prepend($image);
+              var position = $cartIcon.position();
+              $image.animate({
+                top: position.top,
+                left: position.left
+              }, 500 , "linear", function() {
+                $image.remove();
+              });
+            }
+        
+            $('.my-cart-btn').myCart({
+              classCartIcon: 'my-cart-icon',
+              classCartBadge: 'my-cart-badge',
+              affixCartIcon: true,
+              checkoutCart: function(products) {
+                $.each(products, function(){
+                  console.log(this);
+                });
+              },
+              clickOnAddToCart: function($addTocart){
+                goToCartIcon($addTocart);
+              },
+              getDiscountPrice: function(products) {
+                var total = 0;
+                $.each(products, function(){
+                  total += this.quantity * this.price;
+                });
+                return total ;
+              }
+            });
+        
+          });
+          </script>
+        
+        
+        <script type="text/javascript">
+        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-36251023-1']);
+          _gaq.push(['_setDomainName', 'jqueryscript.net']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        
+        <div class="modal fade" id="my-cart-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button><h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover table-responsive" id="my-cart-table">
+                            <div class="alert alert-danger" role="alert" id="my-cart-empty-message">Your cart is empty</div><tbody><tr style="color: red"><td></td><td><strong>Total (including discount)</strong></td><td></td><td></td><td><strong id="my-cart-discount-price">$0</strong></td><td></td></tr></tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="checkout-my-cart">Checkout</button>
+                    </div></div></div></div>
+                    <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled">
+                        <ins id="aswift_1_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;">
+                            <ins id="aswift_1_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;">
+                                <iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" trusttoken="{&quot;type&quot;:&quot;send-redemption-record&quot;,&quot;issuers&quot;:[&quot;https://pagead2.googlesyndication.com&quot;],&quot;refreshPolicy&quot;:&quot;none&quot;,&quot;signRequestData&quot;:&quot;include&quot;,&quot;includeTimestampHeader&quot;:true,&quot;additionalSignedHeaders&quot;:[&quot;sec-time&quot;,&quot;Sec-Redemption-Record&quot;],&quot;additionalSigningData&quot;:&quot;eyJ1cmwiOiJodHRwczovL3d3dy5qcXVlcnlzY3JpcHQubmV0L2RlbW8vU2ltcGxlLVNob3BwaW5nLUNhcnQtUGx1Z2luLVdpdGgtalF1ZXJ5LUJvb3RzdHJhcC1teWNhcnQvIn0.&quot;}" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2783044520727903&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1569888604&amp;plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1048576%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.jqueryscript.net%2Fdemo%2FSimple-Shopping-Cart-Plugin-With-jQuery-Bootstrap-mycart%2F&amp;ea=0&amp;pra=7&amp;wgl=1&amp;adsid=ChAI8IGEkwYQ8_a5xI-zs4x_EjkAAAHMbuX2-cOxPLr9HrnHBRscsMH3cA9Qu3qFi2nTNyKP9DBfngXWi3rRiGLoYPj3BZeHEdJ_Q78&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiOTkuMC40ODQ0LjUxIixbXSxudWxsLG51bGwsIjY0IixbWyIgTm90IEE7QnJhbmQiLCI5OS4wLjAuMCJdLFsiQ2hyb21pdW0iLCI5OS4wLjQ4NDQuNTEiXSxbIkdvb2dsZSBDaHJvbWUiLCI5OS4wLjQ4NDQuNTEiXV0sZmFsc2Vd&amp;tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9wYWdlYWQyLmdvb2dsZXN5bmRpY2F0aW9uLmNvbSIsInN0YXRlIjoyOSwiaGFzUmVkZW1wdGlvblJlY29yZCI6dHJ1ZX1d&amp;dt=1650608838662&amp;bpp=12&amp;bdt=3123&amp;idt=12&amp;shv=r20220420&amp;mjsv=m202204180101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D6c0e22d312e83e4d-227bb945b9cb0052%3AT%3D1632151137%3ART%3D1632151137%3AS%3DALNI_MZM1OKloHX8-XzS6soTQY8qZ5UXQg&amp;prev_slotnames=2780937993&amp;nras=1&amp;correlator=6731438396702&amp;frm=20&amp;pv=1&amp;ga_vid=1290704507.1632151124&amp;ga_sid=1650608775&amp;ga_hid=1431786225&amp;ga_fc=1&amp;u_tz=300&amp;u_his=1&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1349&amp;bih=657&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C182982100%2C182982300%2C31067175%2C31065787%2C21067496%2C31064019&amp;oid=2&amp;psts=AGkb-H9yafVbF9r7zXCxx3wAqvR8QXXBxt8xUqjr2sYWB5pWFMr4qg9VHgmqy3KM3JkC7j-3RjoDMqzh0_2EE8hjZw&amp;pvsid=4057598807863377&amp;pem=846&amp;tmod=1218637749&amp;uas=3&amp;nvt=1&amp;eae=2&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1366%2C0%2C1366%2C728%2C1366%2C657&amp;vis=2&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;jar=2022-04-22-06&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=38" data-google-container-id="a!2" data-load-complete="true"></iframe></ins></ins></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;">
+                                </iframe>
+                            </body>
+                            <iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20220420/r20190131/zrt_lookup.html" style="display: none;"></iframe>
+                            <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><ins id="aswift_2_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_2_anchor" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; z-index: auto !important;"><iframe id="aswift_2" name="aswift_2" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" trusttoken="{&quot;type&quot;:&quot;send-redemption-record&quot;,&quot;issuers&quot;:[&quot;https://pagead2.googlesyndication.com&quot;],&quot;refreshPolicy&quot;:&quot;none&quot;,&quot;signRequestData&quot;:&quot;include&quot;,&quot;includeTimestampHeader&quot;:true,&quot;additionalSignedHeaders&quot;:[&quot;sec-time&quot;,&quot;Sec-Redemption-Record&quot;]}" src="https://googleads.g.doubleclick.net/pagead/html/r20220420/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271808&amp;client=ca-pub-2783044520727903&amp;fa=8&amp;ifi=3&amp;uci=a!3&amp;xpc=snVxucNexr&amp;p=https%3A//www.jqueryscript.net" data-google-container-id="a!3" data-google-query-id="COb7oY2Fp_cCFTRbFQgdzW4Ifw" data-load-complete="true"></iframe></ins></ins></ins>
+</body>
+</html>

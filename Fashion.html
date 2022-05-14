@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/E:/HTML/CSS/Fashion.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>THE<br>FASHION STORE</b></h3>
+  <div class="col-md-6 mb-4">
+
+    <div class="input-group md-form form-sm form-2 pl-0">
+      <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+      <div class="input-group-append">
+        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
+      </div>
+    </div>
+
+  </div>
+  <!--Grid column-->
+
+</div>
+<a href="#" onclick="w3_close()" class="w3-bar-item w3-button">Wearing</a>
+<a href="#" onclick="w3_close()" class="w3-bar-item w3-button">Fabric</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">THE FASHION STORE</span>
+  <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens --> 
+  <div class="w3-hide-large" style="margin-top:150px"></div>
+
+  
+  
+  <!-- Photo grid -->
+  <div class="w3-row">
+    <h1 style="text-align:center;"><b>Wearing</b></h1>
+    <div style="padding: 0px;">
+    <!-- Image 1 -->
+<div class="content_img">
+    <a href="/E:/HTML/Cart.html" ><img src='/E:\HTML\Images/W1.jpeg' width='100%' height='100%'></a>
+    <div>Bridal</div>
+   </div>
+   
+   <!-- Image 2 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W2.jpeg' width='100%' height='100%'>
+    <div>Semi Bridal</div>
+   </div>
+
+   <!-- Image 2 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W2.jpeg' width='100%' height='100%'>
+    <div>Formal</div>
+   </div>
+   
+   <!-- Image 3 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W7.jpeg' width='100%' height='100%'>
+    <div>Casual</div> 
+   </div>
+    </div>
+   
+   <div class="w3-row">
+        <h1 style="text-align:center;"><b>Fabric</b></h1>
+      <!-- Image 1 -->
+<div class="content_img">
+    <a href="https://the-fashion-store.w3spaces.com/" ><img src='/E:\HTML\Images/W1.jpeg' width='100%' height='100%'></a>
+    <div>Chiffon</div>
+   </div>
+   
+   <!-- Image 2 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W2.jpeg' width='100%' height='100%'>
+    <div>Net</div>
+   </div>
+
+   <!-- Image 2 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W2.jpeg' width='100%' height='100%'>
+    <div>Organza</div>
+   </div>
+   
+   <!-- Image 3 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W7.jpeg' width='100%' height='100%'>
+    <div>Maysori</div> 
+   </div>
+   <!-- Image 3 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W7.jpeg' width='100%' height='100%'>
+    <div>Cotton</div> 
+   </div>
+   <!-- Image 3 -->
+   <div class="content_img">
+    <img src='/E:\HTML\Images/W7.jpeg' width='100%' height='100%'>
+    <div>Lawn</div> 
+   </div>
+   </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h4><b>About Us</b></h4>
+    <img src="/E:\HTML\Images/LOGO PNG.png" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4>The Fashion Store</h4>
+      <p>Some text about me. I love taking photos of PEOPLE. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      
+      <hr class="w3-opacity">
+      
+
+  <!-- Contact section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:600px">
+      <h4 class="w3-center"><b>Contact Us</b></h4>
+      <h6>Email: thefashionstore2022@gmail.com</h6>
+      <h6>tel: +92-333-039-4787 (Call & WhatsApp)</h6>
+      <p>Do you have any query? Fill out the form and fill me in with the details :)</p>
+      <FORM method="post" action="action_page.php">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required/>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required/>
+        </div>
+        <div class="w3-section">
+            <label>Mobile Number</label>
+            <input class="w3-input w3-border" type="text" name="Number" required/>
+          </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required/>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Send Message</button>
+    </FORM>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>Address</h3>
+        <p>Falak City Tower, Near Gpo Bolten Market, Karachi, Sindh, Pakistan 72400</p>   
+        
+        
+      </div>
+      <div class="w3-third">
+        <h4>SocialMedia Links</h4>
+        <ul class="w3-ul">
+            <a href="https://www.facebook.com/2022thefashionstore" ><li class="w3-padding-16 w3-hover-black"></a>
+              <a href="https://www.facebook.com/2022thefashionstore" ><ion-icon name="logo-facebook" title="Click here"></ion-icon></a>
+              <a href="https://www.facebook.com/2022thefashionstore" ><span class="w3-large">Facebook</span></a><br>
+              <a href="https://www.facebook.com/2022thefashionstore" ><span>The Fashion Store</span></a>
+          </li>
+          <a href="https://www.instagram.com/2022thefashionstore/"><li class="w3-padding-16 w3-hover-black"></a>
+            <a href="https://www.instagram.com/2022thefashionstore/"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.instagram.com/2022thefashionstore/"><span class="w3-large">Instagram</span></a><br>
+            <a href="https://www.instagram.com/2022thefashionstore/"><span>The Fashion Store</span></a>
+          </li> 
+        </ul>
+      </div>
+      <div class="w3-third">
+        <h1 style="text-align:center;"><b>Thank you for visiting Our Website<br> ♥</b></h1>
+      </div>
+    </div>
+    
+  </footer>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
